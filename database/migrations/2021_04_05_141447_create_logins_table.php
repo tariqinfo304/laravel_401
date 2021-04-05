@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameDepartmentColumnTeacherTable extends Migration
+class CreateLoginsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class RenameDepartmentColumnTeacherTable extends Migration
      */
     public function up()
     {
-        Schema::table("teacher",function(Blueprint $table){
-            
-            $table->renameColumn("dept","department");
+        Schema::create('logins', function (Blueprint $table) {
+            $table->id();
+            $table->string("userame");
+            $table->string("password");
+            $table->timestamps();
         });
-    }   
+    }
 
     /**
      * Reverse the migrations.
@@ -26,9 +28,6 @@ class RenameDepartmentColumnTeacherTable extends Migration
      */
     public function down()
     {
-        Schema::table("teacher",function(Blueprint $table){
-
-            $table->renameColumn("department","dept");
-        });
+        Schema::dropIfExists('logins');
     }
 }

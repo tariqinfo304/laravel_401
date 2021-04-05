@@ -123,3 +123,11 @@ Route::get("tariq" ,[TeacherController::class,"show_data"]);
 Route::resource('teacher', TeacherController::class);
 
 
+
+Route::get('orm',[TeacherController::class,"orm"]);
+
+
+use App\Http\Controllers\CourseController;
+Route::get('c_orm',[CourseController::class,"orm"]);
+
+

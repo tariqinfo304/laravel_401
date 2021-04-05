@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
 
 
     	for($i=0;$i<10;$i++)
-        $this->call(fill_user_table::class);
+            $this->call(fill_user_table::class);
+
+        for($i=0;$i<5;$i++)
+            $this->call(TeacherSeeder::class);
     }
 }

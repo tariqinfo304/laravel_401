@@ -3,11 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
+use App\Models\Login;
 
 //Resource Controller
 //CRUD 
 class TeacherController extends Controller
 {
+
+    function orm()
+    {
+        echo "<pre>";
+        echo "<h1>Teacher Model ORM</h1>";
+
+
+        $teacher = new Teacher();
+        //dd($teacher);
+
+        //dd($teacher->all());
+
+
+        $login = new Login();
+
+        
+        dd($login->all());
+
+    }
     /**
      * Display a listing of the resource.
      *
