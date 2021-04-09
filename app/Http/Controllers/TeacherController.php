@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Login;
+use App\Models\Customer;
 
 //Resource Controller
 //CRUD 
@@ -17,16 +18,105 @@ class TeacherController extends Controller
         echo "<h1>Teacher Model ORM</h1>";
 
 
-        $teacher = new Teacher();
-        //dd($teacher);
+        // $teacher = new Teacher();
+        // //dd($teacher);
 
-        //dd($teacher->all());
+        // $list = $teacher->all();
+
+        // dd($list);
 
 
-        $login = new Login();
+       // dd(Customer::all());
 
+       // $list= Customer::where("c_id","1")->get();
+
+       // $list= Customer::where("name","RMZAN")->get();
+
+
+        //$list = Customer::take(5)->get();
+
+       // $list = Customer::orderBy("name","ASC")->get();
+       // $list = Customer::orderBy("name","DESC")->get();
+
+       // $list = Customer::orderBy("name","ASC")->skip(1)->take(1)->get();
+
+        //$list = Customer::where("c_id","2")->first();
+
+
+        /*
+        $customer_obj = Customer::where("c_id","2")->first();
+
+        sleep(10);
         
-        dd($login->all());
+        echo $customer_obj->name;
+
+        $customer_obj = $customer_obj->fresh();
+
+        echo "<br/> After Modification <br/>";
+        echo $customer_obj->name;
+        */  
+
+
+        /*
+        Customer::chunk(2,function($customer_obj){
+
+
+            foreach($customer_obj as $obj)
+                echo "Customer Name : " . $obj->name . "<br/>";
+
+
+        });
+        */
+
+
+        //$list = Customer::select('name')->get();
+        
+        //$list = Customer::find(1);
+
+       // $list = Customer::where("c_id",1)->first();
+       // $list = Customer::firstWhere("c_id",1);
+
+
+        // $list = Customer::where("c_id",111)->firstOrFail();
+
+        // dd($list);
+
+
+
+        //save //
+        /*
+        $obj = new Customer();
+        $obj->name="ali new";
+        $obj->date_added=Date("y-m-d h:i:s");
+        $obj->save();
+        */
+
+        //bulk insert 
+
+        /*
+        Customer::insert(
+            [
+                ["name" => "abc 1", "date_added" => Date("y-m-d h:i:s")],
+                ["name" => "abc 2", "date_added" => Date("y-m-d h:i:s")],
+                ["name" => "abc 3", "date_added" => Date("y-m-d h:i:s")]
+            ]
+        );
+        */
+
+        //update
+
+        /*
+        $obj = Customer::find(1);
+        $obj->name = "zohaib updated";
+        $obj->save();
+        */
+
+        //bulk update
+
+        Customer::where("c_id",">","8")
+                ->update(["date_added"=>Date("y-m-d")]);
+
+
 
     }
     /**
