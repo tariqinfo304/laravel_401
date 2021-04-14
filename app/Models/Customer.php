@@ -17,4 +17,19 @@ class Customer extends Model
 
     //The attributes that are mass assignable.
     protected $fillable = ['name','date_added'];
+
+
+    //1-1
+    function houseInfo()
+    {
+    	//$this->hasOne(CustomerHouse::class, 'foreign_key', 'local_key');
+    	return $this->hasOne(CustomerHouse::class,"customer_id","c_id");
+    }
+    //1-n
+    function listOfAddress()
+    {
+    	return $this->hasMany(CustomerAddress::class,"customer_id","c_id");
+    }
+
+
 }

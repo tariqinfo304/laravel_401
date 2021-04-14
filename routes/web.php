@@ -124,10 +124,47 @@ Route::resource('teacher', TeacherController::class);
 
 
 
-Route::get('orm',[TeacherController::class,"orm"]);
+//route middleware
+Route::get('orm',[TeacherController::class,"orm"])
+		->middleware(['testtest','test']);
 
 
 use App\Http\Controllers\CourseController;
 Route::get('c_orm',[CourseController::class,"orm"]);
+
+
+//group middleware//
+
+Route::get("group",function(){
+
+	echo "<br/>group route is called<br/>";
+
+})->middleware(['group_test']);
+
+
+//apply middleware on groups of routes
+
+use App\Http\Middleware\TestMiddleware;
+Route::middleware([TestMiddleware::class])->group(function(){
+
+
+	Route::get("test1",function(){
+
+	});
+	Route::get("test2",function(){
+
+	});
+	Route::get("test3",function(){
+
+	});
+
+
+});
+
+
+
+use App\Http\Controllers\OrmRelation;
+Route::get("relation",[OrmRelation::class,"orm"]);
+
 
 

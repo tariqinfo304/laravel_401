@@ -113,10 +113,24 @@ class TeacherController extends Controller
 
         //bulk update
 
+        /*
         Customer::where("c_id",">","8")
                 ->update(["date_added"=>Date("y-m-d")]);
+                */
 
 
+        //delete
+            /*
+        $is_delete = Customer::where("c_id",1)->delete();
+        if($is_delete)
+        {
+            echo "Deleted";
+        }
+        else
+        {
+            echo "error on deletion";
+        }
+        */
 
     }
     /**
