@@ -166,5 +166,10 @@ Route::middleware([TestMiddleware::class])->group(function(){
 use App\Http\Controllers\OrmRelation;
 Route::get("relation",[OrmRelation::class,"orm"]);
 
+use App\Http\Controllers\DBController;
+Route::get("/db",[DBController::class,"index"]);
 
 
+
+Route::get('view',[CourseController::class,"index"]);
+Route::get('layout',[CourseController::class,"layout"]);
