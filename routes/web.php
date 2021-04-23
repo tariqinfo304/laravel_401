@@ -173,3 +173,16 @@ Route::get("/db",[DBController::class,"index"]);
 
 Route::get('view',[CourseController::class,"index"]);
 Route::get('layout',[CourseController::class,"layout"]);
+
+
+use App\Http\Controllers\WebController;
+Route::get('shop',[WebController::class,"index"]);
+
+
+Route::get('website/contact-us',[WebController::class,"contact"]);
+
+
+Route::get('website/register',[WebController::class,"register"]);
+
+
+Route::get('website/checkout',[WebController::class,"checkout"]);
