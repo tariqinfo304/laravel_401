@@ -142,7 +142,7 @@ class TeacherController extends Controller
     {
         //GET
        // echo "Teacher Index() method call here";
-            return view("form");
+        return view("form");
     }
 
     /**

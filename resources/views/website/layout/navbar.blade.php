@@ -16,7 +16,8 @@ Navigation Bar Section
 			  <li class=""><a href="grid-view.php">Grid View</a></li>
 			  <li class=""><a href="three-col.php">Three Column</a></li>
 			  <li class=""><a href="four-col.php">Four Column</a></li>
-			  <li class=""><a href="general.php">General Content</a></li>
+			  <!-- <li class=""><a href="general.php">General Content</a></li> -->
+			  <li class=""><a href="{{ URL('course')}}">Course</a></li>
 			</ul>
 			<form action="#" class="navbar-search pull-left">
 			  <input type="text" placeholder="Search" class="search-query span2">

@@ -186,3 +186,7 @@ Route::get('website/register',[WebController::class,"register"]);
 
 
 Route::get('website/checkout',[WebController::class,"checkout"]);
+
+
+use App\Http\Controllers\CourseResourceController;
+Route::resource("course",CourseResourceController::class);
