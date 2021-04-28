@@ -190,3 +190,8 @@ Route::get('website/checkout',[WebController::class,"checkout"]);
 
 use App\Http\Controllers\CourseResourceController;
 Route::resource("course",CourseResourceController::class);
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

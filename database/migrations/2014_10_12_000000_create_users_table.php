@@ -14,28 +14,15 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-
-            // PK , Auto Increment and name with id 
             $table->id();
-            //end//
-            
-            //Not NULL
-            $table->string('name'); // varchar(255)
-
-            $table->string('email')->unique(); // unique key index on email column
-
-            //set default null value in email_verified_at column
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-
             $table->string('password');
-
-            //built-in 
-            // remmeber_me
             $table->rememberToken();
-            
-            //created_at and updated_at with datetime data types
+            $table->foreignId('current_team_id')->nullable();
+            $table->text('profile_photo_path')->nullable();
             $table->timestamps();
-
         });
     }
 
