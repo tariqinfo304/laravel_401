@@ -26,7 +26,7 @@ Navigation Bar Section
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
 				<div class="dropdown-menu">
-				<form class="form-horizontal loginFrm">
+				<form id="login_form" class="form-horizontal loginFrm">
 				  <div class="control-group">
 					<input type="text" class="span2" id="inputEmail" placeholder="Email">
 				  </div>
@@ -47,3 +47,23 @@ Navigation Bar Section
 		</div>
 	  </div>
 </div>
+<script type="text/javascript">
+	
+
+	$("#login_form").submit(function(e){
+
+		e.preventDefault();
+
+		let email = $("#inputEmail").val();
+		let password = $("#inputPassword").val();
+
+		$.ajax({
+			  method: "GET",
+			  url: "{{ URL('shop_login')}}",
+			  data:{email : email,password:password} 
+			})
+		  .done(function( msg ) {
+		    alert( "Data Saved: " + msg );
+		  });
+	});
+</script>

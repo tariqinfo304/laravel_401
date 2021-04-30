@@ -10,6 +10,7 @@
     
     	@include("website.layout.css")
 
+    	<script src="{{ Asset('js/jquery.js') }}"></script>
   	</head>
 	<body>
 

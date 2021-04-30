@@ -176,20 +176,24 @@ Route::get('layout',[CourseController::class,"layout"]);
 
 
 use App\Http\Controllers\WebController;
-Route::get('shop',[WebController::class,"index"]);
-
-
-Route::get('website/contact-us',[WebController::class,"contact"]);
-
-
-Route::get('website/register',[WebController::class,"register"]);
-
-
-Route::get('website/checkout',[WebController::class,"checkout"]);
-
-
 use App\Http\Controllers\CourseResourceController;
-Route::resource("course",CourseResourceController::class);
+
+
+Route::get('shop',[WebController::class,"index"]);
+Route::get('shop_login',[WebController::class,"login"]);
+Route::get('shop_logout',[WebController::class,"logout"]);
+
+
+Route::middleware("web_auth")->group(function(){
+
+	Route::get('website/contact-us',[WebController::class,"contact"]);
+	Route::get('website/register',[WebController::class,"register"]);
+	Route::get('website/checkout',[WebController::class,"checkout"]);
+	Route::resource("course",CourseResourceController::class);
+});
+
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

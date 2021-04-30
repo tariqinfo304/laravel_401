@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::get("version",function(){
+	echo "API-Version(1.1.9)";
 });
+
+use App\Http\Controllers\APIController;
+
+Route::get("course_list",[APIController::class,"get_course_list"]);
+Route::get("student_list",[APIController::class,"get_students_list"]);
+Route::get("get_register_student",[APIController::class,"get_register_student"]);
+
+Route::get("add_course",[APIController::class,"add_course"]);

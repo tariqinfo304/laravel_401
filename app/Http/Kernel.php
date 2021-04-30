@@ -43,6 +43,9 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\GroupTestMiddleware::class,
             \App\Http\Middleware\TestMiddleware::class
         ],
+        "web_auth" => [
+            \App\Http\Middleware\WebAuthMiddleware::class
+        ],
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
