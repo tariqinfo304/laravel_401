@@ -17,7 +17,7 @@ class WebAuthMiddleware
     public function handle(Request $request, Closure $next)
     {
 
-        if(!empty(session("username")))
+        if(!empty(session("email")))
         {
             return $next($request);
         }

@@ -10,11 +10,21 @@
 				</div>
 				<a class="active" href="{{ URL('shop') }}"> <span class="icon-home"></span> Home</a> 
 				<a href="#"><span class="icon-user"></span> My Account</a> 
-				<a href="{{ URL('website/register') }}"><span class="icon-edit"></span> Free Register </a> 
-				<a href="{{ URL('website/contact-us') }}"><span class="icon-envelope"></span> Contact us</a>
+				@if(!session("email"))
+					<a href="{{ URL('website/register') }}"><span class="icon-edit"></span> Free Register </a> 
+				@endif
+				
+				@if(session("email"))
+					<a href="{{ URL('website/contact-us') }}"><span class="icon-envelope"></span> Contact us</a>
+				@endif
 				<a href="{{ URL('website/checkout') }}"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
 
-				<a href="{{ URL('shop_logout') }}"><span class="icon-user"></span> Logout</a>
+				@if(session("email"))
+					<a href="{{ URL('shop_logout') }}"><span class="icon-user"></span> Logout</a>
+					<a>Welcome to {{ session("email") }}</a>
+				@endif
+
+
 			</div>
 		</div>
 	</div>

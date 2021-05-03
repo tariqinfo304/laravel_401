@@ -182,14 +182,15 @@ use App\Http\Controllers\CourseResourceController;
 Route::get('shop',[WebController::class,"index"]);
 Route::get('shop_login',[WebController::class,"login"]);
 Route::get('shop_logout',[WebController::class,"logout"]);
-
+Route::get('website/register',[WebController::class,"register"]);
+Route::post('website/register',[WebController::class,"save_user"]);
 
 Route::middleware("web_auth")->group(function(){
 
 	Route::get('website/contact-us',[WebController::class,"contact"]);
-	Route::get('website/register',[WebController::class,"register"]);
 	Route::get('website/checkout',[WebController::class,"checkout"]);
 	Route::resource("course",CourseResourceController::class);
+	
 });
 
 

@@ -12,76 +12,34 @@
 	<h3> Registration</h3>	
 	<hr class="soft"/>
 	<div class="well">
-	<form class="form-horizontal">
+	<form action="{{ URL('website/register') }}" class="form-horizontal" method="POST">
+
+		@csrf()
 		<h3>Your Personal Details</h3>
 		<div class="control-group">
-		<label class="control-label">Title <sup>*</sup></label>
-		<div class="controls">
-		<select class="span1" name="days">
-			<option value="">-</option>
-			<option value="1">Mr.</option>
-			<option value="2">Mrs</option>
-			<option value="3">Miss</option>
-		</select>
-		</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label" for="inputFname">First name <sup>*</sup></label>
+			<label class="control-label" for="inputFname">name <sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" id="inputFname" placeholder="First Name">
+			  <input type="text" name="name" placeholder=" Name">
+			  @error('name')
+					    <div class="alert alert-danger">{{ $message }}</div>
+				@enderror
 			</div>
-		 </div>
-		 <div class="control-group">
-			<label class="control-label" for="inputLname">Last name <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" id="inputLname" placeholder="Last Name">
-			</div>
+			 
 		 </div>
 		<div class="control-group">
 		<label class="control-label" for="inputEmail">Email <sup>*</sup></label>
 		<div class="controls">
-		  <input type="text" placeholder="Email">
+		  <input type="text" name="email" placeholder="Email">
+		  @error('email')
+					    <div class="alert alert-danger">{{ $message }}</div>
+				@enderror
 		</div>
+		 
 	  </div>	  
 		<div class="control-group">
 		<label class="control-label">Password <sup>*</sup></label>
 		<div class="controls">
-		  <input type="password" placeholder="Password">
-		</div>
-	  </div>
-		<div class="control-group">
-		<label class="control-label">Date of Birth <sup>*</sup></label>
-		<div class="controls">
-		  <select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
-			<select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
-			<select class="span1" name="days">
-				<option value="">-</option>
-					<option value="1">1&nbsp;&nbsp;</option>
-					<option value="2">2&nbsp;&nbsp;</option>
-					<option value="3">3&nbsp;&nbsp;</option>
-					<option value="4">4&nbsp;&nbsp;</option>
-					<option value="5">5&nbsp;&nbsp;</option>
-					<option value="6">6&nbsp;&nbsp;</option>
-					<option value="7">7&nbsp;&nbsp;</option>
-			</select>
+		  <input type="password" name="password" placeholder="Password">
 		</div>
 	  </div>
 	<div class="control-group">
@@ -91,7 +49,7 @@
 	</div>
 	</form>
 </div>
-
+<!--
 <div class="well">
 	<form class="form-horizontal" >
 		<h3>Your Billing Details</h3>
@@ -209,7 +167,7 @@
 	</div>
 	</form>
 </div>
-
+-->
 
 </div>
 

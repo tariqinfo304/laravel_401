@@ -17,8 +17,13 @@ Navigation Bar Section
 			  <li class=""><a href="three-col.php">Three Column</a></li>
 			  <li class=""><a href="four-col.php">Four Column</a></li>
 			  <!-- <li class=""><a href="general.php">General Content</a></li> -->
-			  <li class=""><a href="{{ URL('course')}}">Course</a></li>
+
+			  	@if(session("email"))
+			  		<li class=""><a href="{{ URL('course')}}">Course</a></li>
+				@endif
 			</ul>
+
+			@if(!session("email"))
 			<form action="#" class="navbar-search pull-left">
 			  <input type="text" placeholder="Search" class="search-query span2">
 			</form>
@@ -44,6 +49,7 @@ Navigation Bar Section
 			</li>
 			</ul>
 		  </div>
+		  @endif
 		</div>
 	  </div>
 </div>
@@ -63,7 +69,42 @@ Navigation Bar Section
 			  data:{email : email,password:password} 
 			})
 		  .done(function( msg ) {
-		    alert( "Data Saved: " + msg );
+		    	
+		    
+		    if(msg.msg == "invalid user")
+		  	{
+		  		alert("Error on login");
+		  	}
+		  	else
+		  	{
+		  		//alert("Login Successfully");
+		  		location.href= "{{ URL('shop') }}"
+		  	}
+		    //alert( "Data Saved: " + msg );
+
+		  }).error(function(msg){
+		  	
+		  	/*	
+		  	msg = msg.responseText;
+
+		  	msg = JSON.parse(msg);
+
+		  	//console.log(msg);
+		  
+		  	if(msg.errors)
+		  	{
+		  		//console.log(msg.errors);
+		  		// if(msg.errors.password)
+		  		// {
+		  		// 	alert("Password is invalid");
+		  		// }
+		  		// else
+		  		// {
+		  		// 	alert("USername is invalid");
+		  		// }
+		  	}*/
+		  	alert("Error on login");
+		  
 		  });
 	});
 </script>
