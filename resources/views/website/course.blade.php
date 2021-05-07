@@ -4,8 +4,20 @@
 
 @section("body")
 	
+	<style type="text/css">
+		
+		.pagination{
+			
+			list-style: none;
+    		display: flex;
+		}
+		.page-item{
+			padding: 10px;
+		}
+
+	</style>
 	<div class="span9">
-    <ul class="breadcrumb">
+    <ul class="breadcrumb"><!-- {{ env("APP_NAME") }} -->
 		<li><a href="{{ URL('shop') }}">Home</a> <span class="divider">/</span></li>
 		<li class="active">Course Listing</li>
     </ul>
@@ -16,6 +28,7 @@
 
 	<hr class="soft"/>
 	<div class="well">
+
 		<table class="table table-bordered">
           <thead>
             <tr>
@@ -49,6 +62,8 @@
           </tbody>
         </table>
 
+        <!-- It will show pagination  -->
+        {{ $list->links() }}
 	</div>
 
 </div>

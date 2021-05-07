@@ -12,12 +12,58 @@ class CourseResourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
+        /*
+        //It will get all config related information of laravel config folder
+        //dd(config("app"));
+        
+        //dd(config("app.name"));
+
+       // dd(config("database.connections.mysql"));
+        
+            dd(config("tariq"));
+        */
+
+        //set configuration at run time  //
+
+        /*
+
+        //show name
+        echo config("app.name");
+        echo "<hr/>";
+        //set 
+        echo config(["app.name"=>"tariq"]);
+        //show value 
+        echo config("app.name");
+        die();
+        */
+
+        /*
+        // Get the current URL without the query string...
+        echo url()->current();
+        echo "<br/>";
+
+        // Get the current URL including the query string...
+        echo url()->full();
+        echo "<br/>";
+
+        // Get the full URL for the previous request...
+        echo url()->previous();
+        echo "<br/>";
+        */
+
+        //die();
+        //dd(Course::paginate(5));
         return view("website.course",[
                 "title" => "Course",
-                "list" => Course::all()
+                "list" => Course::paginate(4)
+
+                //"list" => Course::simplePaginate(5)
             ]);
+        //SimplePaginate will give you next and previous button for gettin page data
+        //paginate will give you all info like total records, total pages and current page and //last page etc..
+
     }
 
     /**
